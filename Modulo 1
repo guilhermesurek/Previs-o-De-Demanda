@@ -1,0 +1,63 @@
+'-------------------------------------------------------------------------------------------------
+'-----------------  P R E V I S Ã O   D E   M A T R Í C U L A  -----------------------------------
+'-------------------------------------------------------------------------------------------------
+Sub PrevisaoMatrícula()
+    'Chamar função para travar a tela do excel e deixar o cursor no modo processamento.
+    'Call Inicialização
+    
+    '****   V A R I Á V E I S   ****
+    'planDados (String) - Armazenará o nome da planilha que contém os dados.
+    'l_colunaNome (String) - Armazenará a letra da coluna que contém os nomes dos alunos.
+    'l_colunaGRR (String) - Armazenará a letra da coluna que contém os GRRs dos alunos.
+    'l_colunaSitDisc (String) - Armazenará a letra da coluna que contém a situação da
+        'disciplina do aluno.
+    'l_colunaCodDisc (String) - Armazenará a letra da coluna que contém o código da
+        'disciplina do aluno.
+    'l_colunaPeriodo (String) - Armazenará a letra da coluna que contém o período ideal
+        'da disciplina.
+    'nome (String) - Armazenará o nome do aluno da iteração anterior.
+    'n_colunaNome (Integer) - Armazenará o número da coluna que contém os nomes dos alunos.
+    'n_colunaGRR (Integer) - Armazenará o número da coluna que contém os GRRs dos alunos.
+    'n_colunaSitDisc (Integer) - Armazenará o número da coluna que contém a situação da
+        'disciplina do aluno.
+    'n_colunaCodDisc (Integer) - Armazenará o número da coluna que contém o código da
+        'disciplina do aluno.
+    'n_colunaPeriodo (Integer) - Armazenará o número da coluna que contém o período ideal
+        'da disciplina.
+    
+'-->Delcaração das Variáveis
+    Dim planDados, l_colunaNome, l_colunaGRR, l_colunaSitDisc, l_colunaCodDisc, _
+        l_colunaPeriodo, nome As String
+    Dim n_colunaNome, n_colunaGRR, n_colunaSitDisc, n_colunaCodDisc, n_colunaPeriodo _
+        As Integer
+    
+'-->Inicialização das variáveis
+    planDados = "Dados" 'Planilha onde os dados estão alocados
+    
+    l_colunaNome = "M" 'Coluna na qual está o nome dos alunos (em planDados)
+    l_colunaGRR = "L" 'Coluna na qual está o GRR dos alunos (em planDados)
+    l_colunaSitDisc = "G" 'Coluna na qual está a situação das disciplinas - Não vencido
+    'ou Matricula/Cursando (em planDados)
+    l_colunaCodDisc = "B" 'Coluna na qual está o código das disciplinas (em planDados)
+    l_colunaPeriodo = "N" 'Coluna na qual está o período ideal das disciplinas (em
+    'planDados)
+    
+    n_colunaNome = ConvColNum(l_colunaNome) 'Coluna na qual está o nome dos alunos (em planDados)
+    n_colunaGRR = ConvColNum(l_colunaGRR) 'Coluna na qual está o GRR dos alunos (em planDados)
+    n_colunaSitDisc = ConvColNum(l_colunaSitDisc) 'Coluna na qual está a situação das disciplinas - Não vencido
+    'ou Matricula/Cursando (em planDados)
+    n_colunaCodDisc = ConvColNum(l_colunaCodDisc) 'Coluna na qual está o código das disciplinas (em planDados)
+    n_colunaPeriodo = ConvColNum(l_colunaPeriodo) 'Coluna na qual está o período ideal das disciplinas (em
+    'planDados)
+    
+    
+'-->Início do Código
+    Sheets(planDados).Activate 'Ativar planilha planDados
+    'Varrer cada linha de dado
+    For Each aluno In Range(Range(l_colunaNome & "2"), Range(l_colunaNome & "1").End(xlDown))
+        'Verificar se mudou de aluno
+    Next
+    
+    'Chamar função para destravar a tela do excel e voltar o cursor ao normal.
+    'Call Finalização
+End Sub
