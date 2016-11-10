@@ -1,0 +1,348 @@
+'-----------------------------------------------------------------------------------------------------------
+'-----------------------------   U T I L I T Á R I O S   ---------------------------------------------------
+'-----------------------------------------------------------------------------------------------------------
+Function Inicialização()
+    'Esta função irá travar a tela do excel, mudar o cursor para em processamento e
+    'mostrar o userForm ufProcessamento, indicando como está indo o processamento.
+    Application.StatusBar = "Iniciando processamento..."
+End Function
+Function Finalização()
+    'Esta função irá destravar a tela do excel, voltar o curso para o normal e encerrar
+    Application.StatusBar = False
+End Function
+Function AttProcessamento(ByVal atual As Integer, ByVal total As Integer)
+    'Esta função irá atualizar o userForm ufProcessamento
+    Application.StatusBar = "Processando... " & Format(atual / total, "0.0%") & " Concluído"
+End Function
+Function ConvColNum(ByVal col As String) As Integer
+    'Esta função irá receber uma letra de coluna (String) e irá retornar seu correspon-
+    'dente em número (Inteiro).
+    
+    Select Case col
+        Case "A"
+            ConvColNum = 1
+            Exit Function
+        Case "B"
+            ConvColNum = 2
+            Exit Function
+        Case "C"
+            ConvColNum = 3
+            Exit Function
+        Case "D"
+            ConvColNum = 4
+            Exit Function
+        Case "E"
+            ConvColNum = 5
+            Exit Function
+        Case "F"
+            ConvColNum = 6
+            Exit Function
+        Case "G"
+            ConvColNum = 7
+            Exit Function
+        Case "H"
+            ConvColNum = 8
+            Exit Function
+        Case "I"
+            ConvColNum = 9
+            Exit Function
+        Case "J"
+            ConvColNum = 10
+            Exit Function
+        Case "K"
+            ConvColNum = 11
+            Exit Function
+        Case "L"
+            ConvColNum = 12
+            Exit Function
+        Case "M"
+            ConvColNum = 13
+            Exit Function
+        Case "N"
+            ConvColNum = 14
+            Exit Function
+        Case "O"
+            ConvColNum = 15
+            Exit Function
+        Case "P"
+            ConvColNum = 16
+            Exit Function
+        Case "Q"
+            ConvColNum = 17
+            Exit Function
+        Case "R"
+            ConvColNum = 18
+            Exit Function
+        Case "S"
+            ConvColNum = 19
+            Exit Function
+        Case "T"
+            ConvColNum = 20
+            Exit Function
+        Case "U"
+            ConvColNum = 21
+            Exit Function
+        Case "V"
+            ConvColNum = 22
+            Exit Function
+        Case "W"
+            ConvColNum = 23
+            Exit Function
+        Case "X"
+            ConvColNum = 24
+            Exit Function
+        Case "Y"
+            ConvColNum = 25
+            Exit Function
+        Case "Z"
+            ConvColNum = 26
+            Exit Function
+        Case "AA"
+            ConvColNum = 27
+            Exit Function
+        Case "AB"
+            ConvColNum = 28
+            Exit Function
+        Case "AC"
+            ConvColNum = 29
+            Exit Function
+        Case "AD"
+            ConvColNum = 30
+            Exit Function
+        Case "AE"
+            ConvColNum = 31
+            Exit Function
+        Case "AF"
+            ConvColNum = 32
+            Exit Function
+        Case "AG"
+            ConvColNum = 33
+            Exit Function
+        Case "AH"
+            ConvColNum = 34
+            Exit Function
+        Case "AI"
+            ConvColNum = 35
+            Exit Function
+        Case "AJ"
+            ConvColNum = 36
+            Exit Function
+        Case "AK"
+            ConvColNum = 37
+            Exit Function
+        Case "AL"
+            ConvColNum = 38
+            Exit Function
+        Case "AM"
+            ConvColNum = 39
+            Exit Function
+        Case "AN"
+            ConvColNum = 40
+            Exit Function
+        Case "AO"
+            ConvColNum = 41
+            Exit Function
+        Case "AP"
+            ConvColNum = 42
+            Exit Function
+        Case "AQ"
+            ConvColNum = 43
+            Exit Function
+        Case "AR"
+            ConvColNum = 44
+            Exit Function
+        Case "AS"
+            ConvColNum = 45
+            Exit Function
+        Case "AT"
+            ConvColNum = 46
+            Exit Function
+        Case "AU"
+            ConvColNum = 47
+            Exit Function
+        Case "AV"
+            ConvColNum = 48
+            Exit Function
+        Case "AW"
+            ConvColNum = 49
+            Exit Function
+        Case "AX"
+            ConvColNum = 50
+            Exit Function
+        Case "AY"
+            ConvColNum = 51
+            Exit Function
+        Case "AZ"
+            ConvColNum = 52
+            Exit Function
+        Case Else
+            ConvColNum = "Indefinido"
+            Exit Function
+    End Select
+End Function
+Function ConvColLet(ByVal col As Integer) As String
+    'Esta função irá receber um número de coluna (Inteiro) e irá retornar seu correspon-
+    'dente em letra (String).
+    
+    Select Case col
+        Case 1
+            ConvCol = "A"
+            Exit Function
+        Case 2
+            ConvCol = "B"
+            Exit Function
+        Case 3
+            ConvCol = "C"
+            Exit Function
+        Case 4
+            ConvCol = "D"
+            Exit Function
+        Case 5
+            ConvCol = "E"
+            Exit Function
+        Case 6
+            ConvCol = "F"
+            Exit Function
+        Case 7
+            ConvCol = "G"
+            Exit Function
+        Case 8
+            ConvCol = "H"
+            Exit Function
+        Case 9
+            ConvCol = "I"
+            Exit Function
+        Case 10
+            ConvCol = "J"
+            Exit Function
+        Case 11
+            ConvCol = "K"
+            Exit Function
+        Case 12
+            ConvCol = "L"
+            Exit Function
+        Case 13
+            ConvCol = "M"
+            Exit Function
+        Case 14
+            ConvCol = "N"
+            Exit Function
+        Case 15
+            ConvCol = "O"
+            Exit Function
+        Case 16
+            ConvCol = "P"
+            Exit Function
+        Case 17
+            ConvCol = "Q"
+            Exit Function
+        Case 18
+            ConvCol = "R"
+            Exit Function
+        Case 19
+            ConvCol = "S"
+            Exit Function
+        Case 20
+            ConvCol = "T"
+            Exit Function
+        Case 21
+            ConvCol = "U"
+            Exit Function
+        Case 22
+            ConvCol = "V"
+            Exit Function
+        Case 23
+            ConvCol = "W"
+            Exit Function
+        Case 24
+            ConvCol = "X"
+            Exit Function
+        Case 25
+            ConvCol = "Y"
+            Exit Function
+        Case 26
+            ConvCol = "Z"
+            Exit Function
+        Case 27
+            ConvCol = "AA"
+            Exit Function
+        Case 28
+            ConvCol = "AB"
+            Exit Function
+        Case 29
+            ConvCol = "AC"
+            Exit Function
+        Case 30
+            ConvCol = "AD"
+            Exit Function
+        Case 31
+            ConvCol = "AE"
+            Exit Function
+        Case 32
+            ConvCol = "AF"
+            Exit Function
+        Case 33
+            ConvCol = "AG"
+            Exit Function
+        Case 34
+            ConvCol = "AH"
+            Exit Function
+        Case 35
+            ConvCol = "AI"
+            Exit Function
+        Case 36
+            ConvCol = "AJ"
+            Exit Function
+        Case 37
+            ConvCol = "AK"
+            Exit Function
+        Case 38
+            ConvCol = "AL"
+            Exit Function
+        Case 39
+            ConvCol = "AM"
+            Exit Function
+        Case 40
+            ConvCol = "AN"
+            Exit Function
+        Case 41
+            ConvCol = "AO"
+            Exit Function
+        Case 42
+            ConvCol = "AP"
+            Exit Function
+        Case 43
+            ConvCol = "AQ"
+            Exit Function
+        Case 44
+            ConvCol = "AR"
+            Exit Function
+        Case 45
+            ConvCol = "AS"
+            Exit Function
+        Case 46
+            ConvCol = "AT"
+            Exit Function
+        Case 47
+            ConvCol = "AU"
+            Exit Function
+        Case 48
+            ConvCol = "AV"
+            Exit Function
+        Case 49
+            ConvCol = "AW"
+            Exit Function
+        Case 50
+            ConvCol = "AX"
+            Exit Function
+        Case 51
+            ConvCol = "AY"
+            Exit Function
+        Case 52
+            ConvCol = "AZ"
+            Exit Function
+        Case Else
+            ConvCol = "Indefinido"
+            Exit Function
+    End Select
+End Function
