@@ -9,30 +9,36 @@ Sub PrevisaoMatrícula()
     'planDados (String) - Armazenará o nome da planilha que contém os dados.
     'l_colunaNome (String) - Armazenará a letra da coluna que contém os nomes dos alunos.
     'l_colunaGRR (String) - Armazenará a letra da coluna que contém os GRRs dos alunos.
-    'l_colunaSitDisc (String) - Armazenará a letra da coluna que contém a situação da
-        'disciplina do aluno.
-    'l_colunaCodDisc (String) - Armazenará a letra da coluna que contém o código da
-        'disciplina do aluno.
-    'l_colunaPeriodo (String) - Armazenará a letra da coluna que contém o período ideal
-        'da disciplina.
-    'nome (String) - Armazenará o nome do aluno da iteração anterior.
+    'l_colunaSitDisc (String) - Armazenará a letra da coluna que contém a situação da _
+        disciplina do aluno.
+    'l_colunaCodDisc (String) - Armazenará a letra da coluna que contém o código da _
+        disciplina do aluno.
+    'l_colunaPeriodo (String) - Armazenará a letra da coluna que contém o período ideal _
+        da disciplina.
+    'nomeAluno (String) - Armazenará o nome do aluno da iteração anterior.
+    'v_disciplinas (Vetor - String) - Armazenará as disciplinas que o aluno se matriculará.
     'n_colunaNome (Integer) - Armazenará o número da coluna que contém os nomes dos alunos.
     'n_colunaGRR (Integer) - Armazenará o número da coluna que contém os GRRs dos alunos.
-    'n_colunaSitDisc (Integer) - Armazenará o número da coluna que contém a situação da
-        'disciplina do aluno.
-    'n_colunaCodDisc (Integer) - Armazenará o número da coluna que contém o código da
-        'disciplina do aluno.
-    'n_colunaPeriodo (Integer) - Armazenará o número da coluna que contém o período ideal
-        'da disciplina.
+    'n_colunaSitDisc (Integer) - Armazenará o número da coluna que contém a situação da _
+        disciplina do aluno.
+    'n_colunaCodDisc (Integer) - Armazenará o número da coluna que contém o código da _
+        disciplina do aluno.
+    'n_colunaPeriodo (Integer) - Armazenará o número da coluna que contém o período ideal _
+        da disciplina.
+    'limiteDisciplinas (Integer) - Armazenará o número máximo de disciplinas que uma pessoa _
+        pode se inscrever.
+    'c_disciplinas (Integer) - Contador: Número de disciplinas que o aluno já está matriculado.
     
 '-->Delcaração das Variáveis
     Dim planDados, l_colunaNome, l_colunaGRR, l_colunaSitDisc, l_colunaCodDisc, _
-        l_colunaPeriodo, nome As String
+        l_colunaPeriodo, nomeAluno As String
     Dim n_colunaNome, n_colunaGRR, n_colunaSitDisc, n_colunaCodDisc, n_colunaPeriodo _
-        As Integer
+        , limiteDisciplinas, c_disciplinas As Integer
     
 '-->Inicialização das variáveis
     planDados = "Dados" 'Planilha onde os dados estão alocados
+    nomeAluno = " " 'Inicializar um valor qualquer para o nomeAluno
+    limiteDisciplinas = 12 'Número máximo de Disciplinas que um aluno pode pegar
     
     l_colunaNome = "M" 'Coluna na qual está o nome dos alunos (em planDados)
     l_colunaGRR = "L" 'Coluna na qual está o GRR dos alunos (em planDados)
@@ -50,12 +56,29 @@ Sub PrevisaoMatrícula()
     n_colunaPeriodo = ConvColNum(l_colunaPeriodo) 'Coluna na qual está o período ideal das disciplinas (em
     'planDados)
     
+    c_disciplinas = 0 'Inicializar contador
+    
+'-->Inicializando Vetores e Matrizes
+    Dim v_disciplinas(limiteDisciplinas) As String
     
 '-->Início do Código
     Sheets(planDados).Activate 'Ativar planilha planDados
     'Varrer cada linha de dado
-    For Each aluno In Range(Range(l_colunaNome & "2"), Range(l_colunaNome & "1").End(xlDown))
+    'For Each aluno In Range(Range(l_colunaNome & "2"), Range(l_colunaNome & "1").End(xlDown))
+    For Each aluno In Range(Range(l_colunaNome & "2"), Range(l_colunaNome & "100")) '**** Utilizado apenas para Testes ****
         'Verificar se mudou de aluno
+        If aluno.Value <> nomeAluno Then
+            'Mudou de aluno, limpar os dados armazenados
+            nomeAluno = aluno.Value
+            'MsgBox "Mudou de Aluno na linha " & aluno.Row '**** Utilizado apenas para Testes ****
+        End If
+        'Verificar se o aluno já está matriculado num número máximo de disciplinas
+        If c_disciplinas = limiteDisciplinas Then
+            'Atingiu limite de disciplinas
+        Else
+            'Não atingiu limite de disciplinas
+            
+        End If
     Next
     
     'Chamar função para destravar a tela do excel e voltar o cursor ao normal.
